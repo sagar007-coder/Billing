@@ -1,0 +1,13 @@
+import mongoose from 'mongoose';
+
+const itemSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    unique: true, // Ensure items are unique
+    trim: true,
+  },
+});
+
+const Item = mongoose.model('Item', itemSchema);
+export default Item;

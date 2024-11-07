@@ -12,15 +12,15 @@ const app = express();
 
 const __dirname = path.resolve();
 
-app.use(cors({ origin: "*" ,credentials: true}));
+app.use(cors({ origin: "https://billing-r5es.onrender.com" ,credentials: true}));
 app.use(express.json());
 
 const JWT_SECRET = process.env.JWT_SECRET || "default_secret_key"; // Moved to .env for security
 
 // Hardcoded users
 const users = [
-  { username: "admin", password: "admin123", role: "admin" },
-  { username: "user", password: "user123", role: "user" },
+  { username: process.env.USER_ADMIN_USERNAME, password: process.env.USER_ADMIN_PASSWORD, role: "admin" },
+  { username: process.env.USER_USERNAME, password: process.env.USER_PASSWORD, role: "user" },
 ];
 
 // Middleware to verify JWT token

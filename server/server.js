@@ -12,7 +12,7 @@ const app = express();
 
 const __dirname = path.resolve();
 
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 const JWT_SECRET = process.env.JWT_SECRET || "default_secret_key"; // Moved to .env for security
